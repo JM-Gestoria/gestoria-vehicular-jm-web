@@ -36,8 +36,8 @@ const Header = () => {
               alt="Gestoría Vehicular JM" 
               className="h-10 sm:h-12 w-auto object-contain transition-all"
             />
-            <div className="hidden sm:block">
-              <h1 className="text-xl font-bold text-primary">Gestoría Vehicular JM</h1>
+            <div className="flex-shrink min-w-0">
+              <h1 className="text-lg sm:text-xl font-bold text-primary truncate">Gestoría Vehicular JM</h1>
               <p className="text-sm text-muted-foreground">Trámites Vehiculares</p>
             </div>
           </div>
