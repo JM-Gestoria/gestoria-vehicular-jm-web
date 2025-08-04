@@ -90,23 +90,23 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contacto" className="py-20 bg-background">
+    <section id="contacto" className="py-16 sm:py-20 bg-background">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             <span className="text-primary">Contacto</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
             Estamos aquí para ayudarte. Contáctanos por cualquier medio y 
             te brindaremos la atención personalizada que mereces.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Contact Information */}
           <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-foreground mb-6">
+            <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-6">
               Información de Contacto
             </h3>
 
@@ -166,7 +166,7 @@ const Contact = () => {
             </Card>
 
             {/* Social Media */}
-            <div className="flex space-x-4">
+            <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
               <Button
                 variant="outline"
                 size="lg"
@@ -191,8 +191,8 @@ const Contact = () => {
           {/* Contact Form */}
           <div>
             <Card className="bg-card border-border">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-foreground mb-6">
+              <CardContent className="p-6 sm:p-8">
+                <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-6">
                   Envíanos un Mensaje
                 </h3>
 

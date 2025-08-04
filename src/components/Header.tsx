@@ -1,10 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { MessageCircle, Menu, X } from 'lucide-react';
 
-
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+    // Cleanup function to remove the class when the component unmounts
+    return () => {
+      document.body.classList.remove('no-scroll');
+    };
+  }, [isMenuOpen]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -23,7 +34,7 @@ const Header = () => {
             <img 
               src="/logo.jpg" 
               alt="Gestoría Vehicular JM" 
-              className="h-12 w-auto object-contain"
+              className="h-10 sm:h-12 w-auto object-contain transition-all"
             />
             <div className="hidden sm:block">
               <h1 className="text-xl font-bold text-primary">Gestoría Vehicular JM</h1>
@@ -91,50 +102,48 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-border">
-            <div className="flex flex-col space-y-4 pt-4">
-              <button 
-                onClick={() => scrollToSection('inicio')}
-                className="text-left text-foreground hover:text-primary transition-colors"
-              >
-                Inicio
-              </button>
-              <button 
-                onClick={() => scrollToSection('sobre-nosotros')}
-                className="text-left text-foreground hover:text-primary transition-colors"
-              >
-                Sobre Nosotros
-              </button>
-              <button 
-                onClick={() => scrollToSection('servicios')}
-                className="text-left text-foreground hover:text-primary transition-colors"
-              >
-                Servicios
-              </button>
-              <button 
-                onClick={() => scrollToSection('informacion')}
-                className="text-left text-foreground hover:text-primary transition-colors"
-              >
-                Información
-              </button>
-              <button 
-                onClick={() => scrollToSection('contacto')}
-                className="text-left text-foreground hover:text-primary transition-colors"
-              >
-                Contacto
-              </button>
-              <Button 
-                variant="default" 
-                className="bg-primary hover:bg-metallic-hover text-primary-foreground font-semibold self-start"
-                onClick={() => window.open('https://wa.me/5213329424140', '_blank')}
-              >
-                <MessageCircle className="mr-2 h-4 w-4" />
-                Contáctanos
-              </Button>
-            </div>
+        <div className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-screen mt-4 pb-4 border-t border-border' : 'max-h-0'}`}>
+          <div className="flex flex-col space-y-4 pt-4">
+            <button 
+              onClick={() => scrollToSection('inicio')}
+              className="text-left text-foreground hover:text-primary transition-colors"
+            >
+              Inicio
+            </button>
+            <button 
+              onClick={() => scrollToSection('sobre-nosotros')}
+              className="text-left text-foreground hover:text-primary transition-colors"
+            >
+              Sobre Nosotros
+            </button>
+            <button 
+              onClick={() => scrollToSection('servicios')}
+              className="text-left text-foreground hover:text-primary transition-colors"
+            >
+              Servicios
+            </button>
+            <button 
+              onClick={() => scrollToSection('informacion')}
+              className="text-left text-foreground hover:text-primary transition-colors"
+            >
+              Información
+            </button>
+            <button 
+              onClick={() => scrollToSection('contacto')}
+              className="text-left text-foreground hover:text-primary transition-colors"
+            >
+              Contacto
+            </button>
+            <Button 
+              variant="default" 
+              className="bg-primary hover:bg-metallic-hover text-primary-foreground font-semibold self-start"
+              onClick={() => window.open('https://wa.me/5213329424140', '_blank')}
+            >
+              <MessageCircle className="mr-2 h-4 w-4" />
+              Contáctanos
+            </Button>
           </div>
-        )}
+        </div>
       </nav>
     </header>
   );

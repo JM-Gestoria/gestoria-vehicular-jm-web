@@ -34,11 +34,11 @@ const AboutUs = () => {
     <section id="sobre-nosotros" className="py-20 bg-background">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             Sobre <span className="text-primary">Nosotros</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
             Conoce nuestra misión, visión y los valores que nos han convertido 
             en líderes en gestión vehicular.
           </p>
@@ -49,10 +49,10 @@ const AboutUs = () => {
           <Card className="bg-card border-border">
             <CardContent className="p-8">
               <div className="mb-6">
-                <h3 className="text-2xl font-bold text-primary mb-2">Misión</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-primary mb-2">Misión</h3>
                 <div className="w-16 h-1 bg-primary rounded"></div>
               </div>
-              <p className="text-muted-foreground leading-relaxed text-lg">
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                 Brindar soluciones integrales en gestión vehicular que simplifiquen y optimicen 
                 los procesos para nuestros clientes, garantizando atención personalizada, 
                 transparencia en cada paso y construyendo relaciones basadas en la confianza 
@@ -65,10 +65,10 @@ const AboutUs = () => {
           <Card className="bg-card border-border">
             <CardContent className="p-8">
               <div className="mb-6">
-                <h3 className="text-2xl font-bold text-primary mb-2">Visión</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-primary mb-2">Visión</h3>
                 <div className="w-16 h-1 bg-primary rounded"></div>
               </div>
-              <p className="text-muted-foreground leading-relaxed text-lg">
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                 Ser la empresa líder en gestión vehicular reconocida a nivel nacional por 
                 nuestra excelencia en el servicio, compromiso ético y la confianza que 
                 generamos en cada cliente.
@@ -105,28 +105,28 @@ const AboutUs = () => {
         </div>
 
         {/* Company Values */}
-        <div className="mt-16 bg-gradient-dark rounded-2xl p-8 md:p-12 text-center">
-          <h3 className="text-3xl font-bold text-foreground mb-6">
+        <div className="mt-12 md:mt-16 bg-gradient-dark rounded-2xl p-8 sm:p-10 md:p-12 text-center">
+          <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-6">
             Nuestros <span className="text-primary">Valores</span>
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h4 className="text-xl font-semibold text-primary mb-3">Transparencia</h4>
+              <h4 className="text-lg sm:text-xl font-semibold text-primary mb-3">Transparencia</h4>
               <p className="text-muted-foreground">
                 Comunicación clara y honesta en cada proceso y etapa del trámite.
               </p>
             </div>
             
             <div>
-              <h4 className="text-xl font-semibold text-primary mb-3">Confianza</h4>
+              <h4 className="text-lg sm:text-xl font-semibold text-primary mb-3">Confianza</h4>
               <p className="text-muted-foreground">
                 Construimos relaciones duraderas basadas en la credibilidad y el respaldo.
               </p>
             </div>
             
             <div>
-              <h4 className="text-xl font-semibold text-primary mb-3">Excelencia</h4>
+              <h4 className="text-lg sm:text-xl font-semibold text-primary mb-3">Excelencia</h4>
               <p className="text-muted-foreground">
                 Compromiso constante con la calidad y mejora continua en nuestros servicios.
               </p>

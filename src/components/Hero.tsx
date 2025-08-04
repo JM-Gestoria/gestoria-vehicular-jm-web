@@ -26,16 +26,16 @@ const Hero = () => {
       
       {/* Geometric Pattern */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-32 h-32 border-2 border-primary/20 rotate-45 animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-40 h-40 border border-primary/10 rotate-12" />
-        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-primary/5 rotate-45" />
+        <div className="hidden md:block absolute top-20 left-10 w-32 h-32 border-2 border-primary/20 rotate-45 animate-pulse" />
+        <div className="hidden md:block absolute bottom-20 right-10 w-40 h-40 border border-primary/10 rotate-12" />
+        <div className="hidden md:block absolute top-1/2 left-1/4 w-24 h-24 bg-primary/5 rotate-45" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
         <div className="max-w-4xl mx-auto">
           {/* Main Title */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
             Servicios Profesionales de{' '}
             <span className="bg-gradient-metallic bg-clip-text text-transparent">
               Gestión Vehicular
@@ -43,7 +43,7 @@ const Hero = () => {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
             Simplificamos tus trámites vehiculares con eficiencia y transparencia, 
             brindando seguridad y tranquilidad en cada servicio.
           </p>
@@ -71,7 +71,7 @@ const Hero = () => {
           </div>
 
           {/* Features Highlights */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div className="mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="bg-card/30 backdrop-blur-sm rounded-lg p-6 border border-border/50">
               <div className="text-2xl font-bold text-primary mb-2">+10</div>
               <div className="text-muted-foreground">Años de experiencia</div>
