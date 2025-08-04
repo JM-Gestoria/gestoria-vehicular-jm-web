@@ -8,51 +8,54 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Gestoría Vehicular JM Design System */
+    --background: 0 0% 6.7%; /* #111111 - Fondo claro */
+    --foreground: 210 40% 98%; /* #F8FAFC - Texto principal */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 11.8%; /* #1E1E1E - Fondo de tarjetas */
+    --card-foreground: 210 40% 98%; /* #F8FAFC - Texto principal */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 11.8%; /* #1E1E1E */
+    --popover-foreground: 210 40% 98%; /* #F8FAFC */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 0 0% 69%; /* #B0B0B0 - Gris metálico */
+    --primary-foreground: 0 0% 0%; /* #000000 - Negro para contraste */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 210 47% 23%; /* #1F2937 - Gris oscuro */
+    --secondary-foreground: 210 40% 98%; /* #F8FAFC */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 11.8%; /* #1E1E1E */
+    --muted-foreground: 215 16% 58%; /* #94A3B8 - Texto secundario */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 0 0% 69%; /* #B0B0B0 - Gris metálico */
+    --accent-foreground: 0 0% 0%; /* #000000 */
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 20%; /* Bordes sutiles */
+    --input: 0 0% 15%; /* Inputs oscuros */
+    --ring: 0 0% 69%; /* #B0B0B0 para focus */
 
-    --radius: 0.5rem;
+    --radius: 0.75rem; /* Bordes más redondeados */
 
-    --sidebar-background: 0 0% 98%;
+    /* Colores personalizados para la gestoría */
+    --hero-bg: 0 0% 0%; /* #000000 - Fondo de destaque */
+    --metallic: 0 0% 69%; /* #B0B0B0 - Metálico */
+    --metallic-hover: 210 13% 82%; /* #D1D5DB - Hover metálico */
+    --dark-section: 210 47% 23%; /* #1F2937 - Secciones oscuras */
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Gradientes personalizados */
+    --gradient-metallic: linear-gradient(135deg, hsl(0 0% 69%), hsl(210 13% 82%));
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 0%), hsl(0 0% 6.7%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 0%) 0%, hsl(210 47% 23%) 100%);
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Sombras elegantes */
+    --shadow-card: 0 10px 30px -10px hsl(0 0% 0% / 0.5);
+    --shadow-metallic: 0 0 30px hsl(0 0% 69% / 0.2);
 
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Transiciones suaves */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
@@ -100,6 +103,6 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
   }
 }
