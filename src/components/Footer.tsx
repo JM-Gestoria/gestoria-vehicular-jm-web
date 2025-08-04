@@ -6,7 +6,7 @@ import {
   Instagram,
   MessageCircle 
 } from 'lucide-react';
-import logoJM from '@/assets/logo-jm.jpg';
+
 
 const Footer = () => {
   const scrollToSection = (sectionId: string) => {
@@ -45,7 +45,7 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
               <img 
-                src={logoJM} 
+                src="/logo.jpg" 
                 alt="Gestoría Vehicular JM" 
                 className="h-12 w-auto object-contain"
               />

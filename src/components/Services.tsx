@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { 
   FileText, 
   UserCheck, 
@@ -15,6 +16,23 @@ import {
 import servicesBackground from '@/assets/services-bg.jpg';
 
 const Services = () => {
+  const plateImages = [
+    'IMG-20250803-WA0000.jpg',
+    'IMG-20250803-WA0001.jpg',
+    'IMG-20250803-WA0002.jpg',
+    'IMG-20250803-WA0003.jpg',
+    'IMG-20250803-WA0004.jpg',
+    'IMG-20250803-WA0005.jpg',
+    'IMG-20250803-WA0006.jpg',
+    'IMG-20250803-WA0007.jpg',
+    'IMG-20250803-WA0008.jpg',
+    'IMG-20250803-WA0009.jpg',
+    'IMG-20250803-WA0010.jpg',
+    'IMG-20250803-WA0011.jpg',
+    'IMG-20250803-WA0012.jpg',
+    'IMG-20250803-WA0013.jpg',
+  ];
+
   const services = [
     {
       icon: FileText,
@@ -106,6 +124,36 @@ const Services = () => {
               </Card>
             );
           })}
+        </div>
+
+        {/* Carousel de Placas */}
+        <div className="mt-20">
+          <h3 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">
+            Resultados de Nuestros <span className="text-primary">Trámites</span>
+          </h3>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full max-w-5xl mx-auto"
+          >
+            <CarouselContent>
+              {plateImages.map((image, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="p-1">
+                    <Card className="overflow-hidden border-border hover:shadow-card transition-all duration-300">
+                      <CardContent className="flex aspect-video items-center justify-center p-0">
+                        <img src={`/placas/${image}`} alt={`Placa de vehículo ${index + 1}`} className="rounded-lg object-cover w-full h-full" />
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden sm:flex" />
+            <CarouselNext className="hidden sm:flex" />
+          </Carousel>
         </div>
 
         {/* Call-to-Action Buttons */}

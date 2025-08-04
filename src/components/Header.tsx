@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { MessageCircle, Menu, X } from 'lucide-react';
-import logoJM from '@/assets/logo-jm.jpg';
+
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,7 +21,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <img 
-              src={logoJM} 
+              src="/logo.jpg" 
               alt="Gestoría Vehicular JM" 
               className="h-12 w-auto object-contain"
             />
