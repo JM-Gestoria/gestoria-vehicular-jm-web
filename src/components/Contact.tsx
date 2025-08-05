@@ -12,11 +12,13 @@ import {
   MessageCircle,
   Facebook,
   Instagram,
-  Send
+  Send,
+  Loader2
 } from 'lucide-react';
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     nombre: '',
     correo: '',
@@ -32,10 +34,10 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Basic validation
+    // Validación básica
     if (!formData.nombre || !formData.correo || !formData.mensaje) {
       toast({
         title: "Error",
@@ -45,21 +47,64 @@ const Contact = () => {
       return;
     }
 
-    // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData);
-    
-    toast({
-      title: "Mensaje enviado",
-      description: "Gracias por contactarnos. Te responderemos pronto.",
-    });
+    // Validación de formato de correo electrónico
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.correo)) {
+      toast({
+        title: "Error",
+        description: "Por favor ingresa un correo electrónico válido.",
+        variant: "destructive"
+      });
+      return;
+    }
 
-    // Reset form
-    setFormData({
-      nombre: '',
-      correo: '',
-      asunto: '',
-      mensaje: ''
-    });
+    setIsSubmitting(true);
+
+    try {
+      // Enviar datos al webhook de Make.com
+      const response = await fetch('https://hook.us2.make.com/lc2doxix286b46akis1kppnwsikxfvsq', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          nombre: formData.nombre,
+          correo: formData.correo,
+          asunto: formData.asunto || 'Consulta desde el sitio web',
+          mensaje: formData.mensaje,
+          fecha: new Date().toISOString(),
+          origen: 'Sitio Web Gestoría Vehicular JM'
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Error al enviar el mensaje');
+      }
+      
+      // Mostrar mensaje de éxito
+      toast({
+        title: "¡Mensaje enviado!",
+        description: "Gracias por contactarnos. Te responderemos a la brevedad.",
+      });
+
+      // Reiniciar el formulario
+      setFormData({
+        nombre: '',
+        correo: '',
+        asunto: '',
+        mensaje: ''
+      });
+      
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
+      toast({
+        title: "Error",
+        description: "Hubo un problema al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -262,11 +307,20 @@ const Contact = () => {
 
                   <Button 
                     type="submit" 
-                    size="lg"
                     className="w-full bg-primary hover:bg-metallic-hover text-primary-foreground font-semibold"
+                    disabled={isSubmitting}
                   >
-                    <Send className="mr-2 h-5 w-5" />
-                    Enviar Mensaje
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Enviando...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="mr-2 h-4 w-4" />
+                        Enviar Mensaje
+                      </>
+                    )}
                   </Button>
                 </form>
 
